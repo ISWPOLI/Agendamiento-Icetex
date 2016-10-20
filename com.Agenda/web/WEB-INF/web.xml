@@ -16,6 +16,10 @@
         <servlet-name>error</servlet-name>
         <servlet-class>com.Servlets.error</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Agendafinal</servlet-name>
+        <servlet-class>com.Servlets.Agendafinal</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -32,7 +36,6 @@
         <servlet-name>error</servlet-name>
         <url-pattern>/error</url-pattern>
     </servlet-mapping>
-    
     <error-page>
         <error-code>404</error-code>
         <location>/error</location>
@@ -51,8 +54,10 @@
         <exception-type>java.io.IOException</exception-type>
         <location>/error</location>
     </error-page>
-    
-    
+    <servlet-mapping>
+        <servlet-name>Agendafinal</servlet-name>
+        <url-pattern>/Afinal</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
