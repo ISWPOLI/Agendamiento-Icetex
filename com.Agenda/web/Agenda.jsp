@@ -41,7 +41,7 @@
                     var text = $("#bota").text();
                     alert($("#eso").text(text));
                     var text2 = $("#es").text();
-                    $("#eso").text(text);
+                    $("#eso").val(text);
                     alert(text);
                 })
 
@@ -82,7 +82,7 @@
                     <input type="submit"/>
 
                     <div id="es">hola </div>
-                    <div id="eso">chao </div>
+                    <input type="text" class="form-control" id="eso"  name="user">
                 </form>
             </div>
 
