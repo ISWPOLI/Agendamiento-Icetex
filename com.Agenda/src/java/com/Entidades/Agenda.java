@@ -21,8 +21,11 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * declaracion de la entidad Agenda
  *
- * @author Willy
+ *
+ * @author Damage Control
+ * @version 0.1.6
  */
 @Entity
 @Table(name = "AGENDA")
@@ -35,7 +38,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Agenda.findByFecha", query = "SELECT a FROM Agenda a WHERE a.fecha = :fecha"),
     @NamedQuery(name = "Agenda.findByObservaciones", query = "SELECT a FROM Agenda a WHERE a.observaciones = :observaciones")})
 public class Agenda implements Serializable {
+
     private static final long serialVersionUID = 1L;
+    /**
+     * Creacion de los atributos directo de la tabla
+     */
     @Id
     @Basic(optional = false)
     @NotNull
@@ -54,6 +61,20 @@ public class Agenda implements Serializable {
     @Column(name = "OBSERVACIONES")
     private String observaciones;
 
+    
+
+    /**
+     * @param idAgenda: contiene el id de la agenda.
+     * @param tipo : contiene el tipo de la agenda.
+     * @param hora: contiene la hora
+     * @param fecha : contiene la fecha.
+     * @param observaciones :contiene las observaciones.
+     */
+    
+    
+    /**
+     * Creacion de los getters y setters y constructor 
+     */
     public Agenda() {
     }
 
@@ -110,7 +131,7 @@ public class Agenda implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
+        // TODO:Este metodo no funciona en el caso donde el metodo id no este ajustado 
         if (!(object instanceof Agenda)) {
             return false;
         }
@@ -125,5 +146,5 @@ public class Agenda implements Serializable {
     public String toString() {
         return "com.Entidades.Agenda[ idAgenda=" + idAgenda + " ]";
     }
-    
+
 }

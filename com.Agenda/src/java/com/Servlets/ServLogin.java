@@ -17,8 +17,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * declaracion de la Servlet  ServLogin
  *
- * @author Willy
+ *
+ * @author Damage Control
+ * @version 0.1.6
  */
 public class ServLogin extends HttpServlet {
     @EJB
@@ -98,6 +101,16 @@ public class ServLogin extends HttpServlet {
         
      
     }
+    
+    
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param user Parametro de usuario para verificacion 
+     * @param pass Parametro de contraseña para verificacion
+     * @param pass1 Parametro de usuario para verificacion desde la entidad
+     * @param usss Parametro de contraseña para verificacion desde la entidad
+     */
 
     /**
      * Returns a short description of the servlet.

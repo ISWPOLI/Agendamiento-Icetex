@@ -20,8 +20,11 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * declaracion de la entidad Usuario
  *
- * @author Willy
+ *
+ * @author Damage Control
+ * @version 0.1.6
  */
 @Entity
 @Table(name = "USUARIO")
@@ -69,6 +72,23 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "SEGURIDAD_USUARIO", referencedColumnName = "USUARIO")
     @ManyToOne(optional = false)
     private Seguridad seguridadUsuario;
+    
+    
+    /**
+     * @param idUsuario: El id o identificador de la agenda .
+     * @param nombre : Nombre del usuario.
+     * @param apellido: Apellido del usuario.
+     * @param telefono : Telefono del usuario.
+     * @param tipoDocumento :Tipo de documento del usuario CC o TI.
+     * * @param idAgendamiento :Este id proviene de el id de la agenda que se le asigna al usuario.
+     * * @param correoIdCorreo :Correo del usuario.
+     * * @param seguridadUsuario :Usuario y contraseña .
+     * 
+     */
+    
+     /**
+     * Creacion de los getters y setters y constructor 
+     */
 
     public Usuario() {
     }

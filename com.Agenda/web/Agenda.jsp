@@ -37,14 +37,15 @@
         <script>
             $(document).ready(function () {
 
-                $("a").click(function () {
-                    var text = $("#bota").text();
-                    alert($("#eso").text(text));
-                    var text2 = $("#es").text();
-                    $("#eso").val(text);
-                    alert(text);
-                })
-
+                $("input[name=edad]").click(function () {    
+	    //alert("Bien!!!, la edad seleccionada es: " + $('input:radio[name=edad]:checked').val());
+            var text2 = $('input:radio[name=edad]:checked').val();
+            alert(text2);
+            
+            $("#eso").val(text2);
+           
+	    //alert("Bien!!!, la edad seleccionada es: " + $(this).val());  
+         });
 
             })
 
@@ -70,20 +71,38 @@
                     %> 
 
 
-                    <a href="#" class="list-group-item"  id="bota"<%=y%> ><%= "**Fech:  **   " + mdy + "   **Tipo de solicitud**   " + cadena[y].getTipo() + " **Hora** " + cadena[y].getHora()%></a>
-
-
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id Agenda</th>
+                                 <th>Fecha</th>
+                                  <th>Tipo</th>
+                                   <th>Hora</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="radio" name="edad" value="<%= cadena[y].getIdAgenda()+"__ "+ mdy+"__"+cadena[y].getTipo() +"__ "+cadena[y].getHora()%>"><%= cadena[y].getIdAgenda()%></td>
+                                <td><input type="text" name="edad" value="<%= mdy%>"  disabled="disabled"></td>
+                                <td><input type="text" name="edad" value="<%= cadena[y].getTipo()%>" disabled="disabled"></td>
+                                <td><input type="text" name="edad" value="<%=  cadena[y].getHora()%>" disabled="disabled"></td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+   
 
                     <% }
                     %>
 
-
-
+                    <div id="es">Agenda seleccionada es  </div>
+                    <input type="text" class="form-control" id="eso"  name="texto">
                     <input type="submit"/>
 
-                    <div id="es">hola </div>
-                    <input type="text" class="form-control" id="eso"  name="user">
                 </form>
+
+
             </div>
 
             <h4>Las agendas se actualizan cada semana  </h4>

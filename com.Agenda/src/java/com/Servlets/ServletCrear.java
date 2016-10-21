@@ -22,10 +22,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * declaracion de la Servlet ServLogin
  *
- * @author Willy
+ *
+ * @author Damage Control
+ * @version 0.1.6
  */
 public class ServletCrear extends HttpServlet {
+
     @EJB
     private UsuarioFacade usuarioFacade;
     @EJB
@@ -52,7 +56,7 @@ public class ServletCrear extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SerCrear</title>");            
+            out.println("<title>Servlet SerCrear</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet SerCrear at " + request.getContextPath() + "</h1>");
@@ -87,8 +91,7 @@ public class ServletCrear extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
@@ -98,18 +101,35 @@ public class ServletCrear extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String pass = request.getParameter("cont");
         String correo = request.getParameter("correo");
-                
+
+        /**
+         * Handles the HTTP <code>POST</code> method.
+         *
+         * @param nombre Parametro nombre del jsp
+         * @param apellido parametro apellido del jsp
+         * @param telefono parametro telefono del jsp
+         * @param tdoc parametro tipo documento del jsp
+         * @param ndoc parametro numero de documento del jsp 
+         * @param usuario parametro usuario del jsp
+         * @param pass parametro contraseña del jsp
+         * @param correo parametro correo usuario del jsp 
+         *
+         *
+         *
+         */
+        
+        /** se crea una instancia de cada objeto entidad y de los sesion beans */
         Correo co = new Correo();
         co.setIdCorreo(correo);
-        
+
         correoFacade.create(co);
-        
+
         Seguridad sg = new Seguridad();
         sg.setUsuario(usuario);
         sg.setPassword(pass);
-        
+
         seguridadFacade.create(sg);
-        
+
         Usuario us = new Usuario();
         us.setIdUsuario(doc);
         us.setNombre(nombre);
@@ -118,24 +138,22 @@ public class ServletCrear extends HttpServlet {
         us.setTipoDocumento(tdoc);
         us.setCorreoIdCorreo(co);
         us.setSeguridadUsuario(sg);
-        
+
         usuarioFacade.create(us);
-        
-               
-         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+
+        try (PrintWriter out = response.getWriter()) {
+           
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SerCrear</title>");            
+            out.println("<title>Servlet SerCrear</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SerCrear at " + nombre+apellido+telefono+tdoc+doc+usuario+pass+correo + "</h1>");
+            out.println("<h1>Servlet SerCrear at " + nombre + apellido + telefono + tdoc + doc + usuario + pass + correo + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
-        
-        
+
     }
 
     /**

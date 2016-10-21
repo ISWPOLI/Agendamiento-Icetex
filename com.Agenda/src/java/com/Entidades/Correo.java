@@ -22,8 +22,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
+ * declaracion de la entidad Correo
  *
- * @author Willy
+ *
+ * @author Damage Control
+ * @version 0.1.6
  */
 @Entity
 @Table(name = "CORREO")
@@ -31,7 +34,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Correo.findAll", query = "SELECT c FROM Correo c"),
     @NamedQuery(name = "Correo.findByIdCorreo", query = "SELECT c FROM Correo c WHERE c.idCorreo = :idCorreo")})
+
+/**
+ * Creacion de los atributos directo de la tabla y la clase 
+ */
 public class Correo implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -41,6 +49,15 @@ public class Correo implements Serializable {
     private String idCorreo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "correoIdCorreo")
     private List<Usuario> usuarioList;
+    
+     /**
+    
+     * @param idCorreo :Contiene los correos provenientes de la tabla .
+     */
+    
+    /**
+     * Creacion de los getters y setters y constructor 
+     */
 
     public Correo() {
     }
@@ -90,5 +107,5 @@ public class Correo implements Serializable {
     public String toString() {
         return "com.Entidades.Correo[ idCorreo=" + idCorreo + " ]";
     }
-    
+
 }

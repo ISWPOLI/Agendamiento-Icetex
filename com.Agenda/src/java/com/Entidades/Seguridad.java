@@ -22,8 +22,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
+ * declaracion de la entidad Seguridad
  *
- * @author Willy
+ *
+ * @author Damage Control
+ * @version 0.1.6
  */
 @Entity
 @Table(name = "SEGURIDAD")
@@ -47,6 +50,17 @@ public class Seguridad implements Serializable {
     private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "seguridadUsuario")
     private List<Usuario> usuarioList;
+    
+    
+     /**
+     * @param usuario: Usuario que se crea de el registro.
+     * @param password : Pasword que se crea del registro.
+     * 
+     */
+    
+     /**
+     * Creacion de los getters y setters y constructor 
+     */
 
     public Seguridad() {
     }

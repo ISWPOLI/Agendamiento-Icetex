@@ -18,8 +18,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * declaracion del Servlet SerAgenda
  *
- * @author Willy
+ *
+ * @author Damage Control
+ * @version 0.1.6
  */
 public class ServAgenda extends HttpServlet {
     @EJB
@@ -87,6 +90,14 @@ public class ServAgenda extends HttpServlet {
         Agenda [] agencad = new Agenda[agenda.size()];
         int size =agenda.size();
         agenda.toArray(agencad);
+        
+        /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param agenda Crea una collecion de las agendas 
+     * @param size es el tamaño total de la agenda 
+     * 
+     */
         
         request.setAttribute("tamaño", size);
         request.setAttribute("cadenagenda", agencad);

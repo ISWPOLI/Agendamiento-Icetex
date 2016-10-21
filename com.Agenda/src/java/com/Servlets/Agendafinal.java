@@ -7,6 +7,7 @@ package com.Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.StringTokenizer;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -72,15 +73,20 @@ public class Agendafinal extends HttpServlet {
             throws ServletException, IOException {
         
         String mess=null; 
-        String checkbok = request.getParameter("nombre");
+        String texto  = request.getParameter("texto");
         
-        if (checkbok!=null && checkbok.equalsIgnoreCase("on")){
+        
+        StringTokenizer st = new StringTokenizer(texto,"_");
+        
+        
+        
+        /*if (checkbok!=null && checkbok.equalsIgnoreCase("on")){
             
              mess = "seleccion ok";
                 
             }else {
              mess ="no seleccion";
-        }
+        }*/
         
         
         try (PrintWriter out = response.getWriter()) {
@@ -91,7 +97,7 @@ public class Agendafinal extends HttpServlet {
             out.println("<title>Servlet Agendafinal</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Agendafinal at " + mess+ "</h1>");
+            out.println("<h1>Servlet Agendafinal at " + texto+ "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

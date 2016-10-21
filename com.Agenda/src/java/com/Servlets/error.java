@@ -10,7 +10,16 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.*;
 
-// Extend HttpServlet class
+
+/**
+ * declaracion de la Servlet ServLogin
+ *
+ *
+ * @author Damage Control
+ * @version 0.1.6
+ */
+
+// Extencion del servlet 
 public class error extends HttpServlet {
 
     // Method to handle GET method request.
