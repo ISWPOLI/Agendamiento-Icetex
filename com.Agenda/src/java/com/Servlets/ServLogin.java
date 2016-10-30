@@ -5,10 +5,15 @@
  */
 package com.Servlets;
 
+import com.Entidades.Agenda;
 import com.Entidades.Seguridad;
+import com.Entidades.Usuario;
 import com.Session.SeguridadFacade;
+import com.Session.UsuarioFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.util.Collection;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,6 +29,8 @@ import javax.servlet.http.HttpServletResponse;
  * @version 0.1.6
  */
 public class ServLogin extends HttpServlet {
+    @EJB
+    private UsuarioFacade usuarioFacade;
     @EJB
     private SeguridadFacade seguridadFacade;
 
@@ -79,25 +86,45 @@ public class ServLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher disparcher = null;
+       //RequestDispatcher disparcher = null;
+        
+        String nom =null,id ;
         
         String user = request.getParameter("user");
         String pass = request.getParameter("pass");
         
         Seguridad seg = seguridadFacade.find(user);
+        Usuario uss = new Usuario();
         
         
+        Collection<Usuario> ust = usuarioFacade.findAll();
+        Usuario [] usert = new Usuario[ust.size()];
         
+        for (int i=0; i<=1;i++){
+            
+            nom =usert[i].getNombre();
+            out.println(" <h1 Se ha generado un error Por favor vuelva a intentarlo  </h>"+ nom);
+        }
+      
+       
+        
+        
+        /*
         String pass1 = seg.getPassword();
         String usss= seg.getUsuario();
         if (pass1.equals(pass)){
             
            
-            disparcher = getServletContext().getRequestDispatcher("/index.jsp");
+            //disparcher = getServletContext().getRequestDispatcher("/index.jsp");
+            
+             //request.setAttribute("nombre", size);
              
         }
         
-         disparcher.forward(request, response);
+         //disparcher.forward(request, response);*/
+         
+         
+         
         
      
     }

@@ -52,7 +52,7 @@ public class error extends HttpServlet {
                 + "<body bgcolor=\"#FDFCFB\">\n");
 
         if (throwable == null && statusCode == null) {
-            out.println(" <h1 align= center><font face=arial size=15 color=#CECCCE> Usuario y / o Contraseña Incorrecta  </h></font>");
+            out.println(" <h1 align= center><font face=arial size=15 color=#CECCCE> Se ha generado un error Por favor vuelva a intentarlo  </h></font>");
             out.println("<h3><font size =6 color=#DC0598>Regresar a pagina inicial </h3> <a href=\""
                     + response.encodeURL("http://localhost:8083/com.Agenda/Login.jsp")+ "\">Login</a>.");
         } else if (statusCode != null) {

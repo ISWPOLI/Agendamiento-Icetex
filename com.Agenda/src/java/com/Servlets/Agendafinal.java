@@ -5,9 +5,12 @@
  */
 package com.Servlets;
 
+import com.Entidades.Agenda;
+import com.Session.AgendaFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +21,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Willy
  */
 public class Agendafinal extends HttpServlet {
+
+    @EJB
+    private AgendaFacade agendaFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +42,7 @@ public class Agendafinal extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Agendafinal</title>");            
+            out.println("<title>Servlet Agendafinal</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Agendafinal at " + request.getContextPath() + "</h1>");
@@ -71,37 +77,41 @@ public class Agendafinal extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String mess = null;
+        String texto = request.getParameter("texto");
+
+        StringTokenizer st = new StringTokenizer(texto);
+        String hora ;
+        int id = 0;
+
+        hora = st.nextElement().toString();
         
-        String mess=null; 
-        String texto  = request.getParameter("texto");
+        id =Integer.parseInt(hora);
+               
+        Agenda ag = agendaFacade.find(id);
+       
+        hora = ag.getTipo();
+        
+        agendaFacade.remove(ag);
+        
+        request.setAttribute("texagend",texto);
         
         
-        StringTokenizer st = new StringTokenizer(texto,"_");
-        
-        
-        
-        /*if (checkbok!=null && checkbok.equalsIgnoreCase("on")){
-            
-             mess = "seleccion ok";
-                
-            }else {
-             mess ="no seleccion";
-        }*/
-        
-        
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Agendafinal</title>");            
+            out.println("<title>Servlet Agendafinal</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Agendafinal at " + texto+ "</h1>");
+            out.println("<h1>Servlet Agendafinal at " + hora + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
-        
+
     }
 
     /**

@@ -44,7 +44,7 @@
             
             $("#eso").val(text2);
            
-	    //alert("Bien!!!, la edad seleccionada es: " + $(this).val());  
+	     
          });
 
             })
@@ -83,7 +83,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="radio" name="edad" value="<%= cadena[y].getIdAgenda()+"__ "+ mdy+"__"+cadena[y].getTipo() +"__ "+cadena[y].getHora()%>"><%= cadena[y].getIdAgenda()%></td>
+                                <td><input type="radio" name="edad" value="<%= " "+cadena[y].getIdAgenda()+" "+ mdy+" "+cadena[y].getTipo() +" "+cadena[y].getHora()%>"><%= " "+cadena[y].getIdAgenda()%></td>
                                 <td><input type="text" name="edad" value="<%= mdy%>"  disabled="disabled"></td>
                                 <td><input type="text" name="edad" value="<%= cadena[y].getTipo()%>" disabled="disabled"></td>
                                 <td><input type="text" name="edad" value="<%=  cadena[y].getHora()%>" disabled="disabled"></td>

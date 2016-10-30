@@ -16,6 +16,7 @@ import com.Session.UsuarioFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -91,7 +92,11 @@ public class ServletCrear extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        RequestDispatcher disparcher;        
+         disparcher = getServletContext().getRequestDispatcher("/Login.jsp");
+        
+        
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
@@ -140,6 +145,8 @@ public class ServletCrear extends HttpServlet {
         us.setSeguridadUsuario(sg);
 
         usuarioFacade.create(us);
+        
+         disparcher.forward(request, response);
 
         try (PrintWriter out = response.getWriter()) {
            
