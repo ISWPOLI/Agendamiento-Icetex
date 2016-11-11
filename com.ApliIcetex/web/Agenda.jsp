@@ -17,8 +17,7 @@
     session.setAttribute("correo", correo);
 
     SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy");
-    String fecha;
-    
+     
     Date fechadate = null;
 %>
 
@@ -34,6 +33,7 @@
         <script type="text/javascript" src="../jalert/jquery.alerts.js"></script>  
         <link href="../jalert/jquery.alerts.css" rel="stylesheet" type="text/css" />  
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <link rel="stylesheet" href="Css/Style1.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -45,12 +45,13 @@
                 $("input[name=edad]").click(function () {    
 	    //alert("Bien!!!, la edad seleccionada es: " + $('input:radio[name=edad]:checked').val());
             var text2 = $('input:radio[name=edad]:checked').val();
-            alert(text2);
+            alert("Las agendas se actualizan cada semana"+ text2);
             
             $("#eso").val(text2);
            
 	     
          });
+         $("#em").css("display", "none");
 
             })
 
@@ -101,7 +102,7 @@
                     <% }
                     %>
 
-                    <div id="es">Agenda seleccionada es  </div>
+                    <div id="es"><h3>Agenda seleccionada es </h3> </div>
                     <input type="text" class="form-control" id="eso"  name="texto">
                     <input type="text" class="form-control" id="em" value="<%= correo%>"  name="texto">
                     
@@ -112,7 +113,7 @@
 
             </div>
 
-            <h4>Las agendas se actualizan cada semana  </h4>
+            
         </div>
 
     </body>

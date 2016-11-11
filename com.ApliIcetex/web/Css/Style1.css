@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1/11/2016, 12:33:04 PM
+    Author     : Willy
+*/
+@import url(https://fonts.googleapis.com/css?family=Acme);
+
+body,html{
+ 
+font-family: 'Acme', sans-serif;
+}
+
+h1{
+    font: 50% ;
+}
+
+.container{
+    margin-top: 50px;
+}
+
+#salir{
+    margin-top: 300px;
+    margin-right: 1000px;
+    
+}
+#agenda{
+     margin-right: 500px;
+}
+#info{
+    margin-right: 500px;
+}

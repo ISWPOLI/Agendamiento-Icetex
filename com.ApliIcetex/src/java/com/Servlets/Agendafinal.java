@@ -5,9 +5,9 @@
  */
 package com.Servlets;
 
-
 import com.Entid.Agenda;
 import com.Session.AgendaFacade;
+import com.ejb.Mailsenderbean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Properties;
@@ -38,6 +38,8 @@ public class Agendafinal extends HttpServlet {
 
     @EJB
     private AgendaFacade agendaFacade;
+    @EJB
+    private Mailsenderbean mailSender;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -91,19 +93,21 @@ public class Agendafinal extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-          RequestDispatcher disparcher;        
-        disparcher = getServletContext().getRequestDispatcher("/RegisAgenda.jsp");
 
-        String clave="46263005";
-        String de ="wpradere@gmail.com";
-        String asunto ="agendamiento icetex";
-        
-        HttpSession misesion = request.getSession();
-        String corr =(String) misesion.getAttribute("correo");
-        
-        
+        RequestDispatcher disparcher;
+        disparcher = getServletContext().getRequestDispatcher("/RegisAgenda.jsp");
         String texto = request.getParameter("texto");
+
+        HttpSession misesion = request.getSession();
+        String corr = (String) misesion.getAttribute("correo");
+
+        String toEmail = corr;
+        String subjet = "Agenda Icetex";
+        String message = "Se realizó con éxito tu agenda, recuerda que las cancelaciones se realizan 24 horas antes de tu agenda asignada " +" ---- "+ texto;
+
+        String fromEmail = "aplicetex@gmail.com";
+        String username = "aplicetex";
+        String pass = "Apex147258";
 
         StringTokenizer st = new StringTokenizer(texto);
         String hora;
@@ -120,20 +124,12 @@ public class Agendafinal extends HttpServlet {
         agendaFacade.remove(ag);
 
         request.setAttribute("texagend", texto);
-         request.setAttribute("correo", corr);
-         
-          request.setAttribute("clave", clave);
-           request.setAttribute("de", de);
-            request.setAttribute("asunto", asunto);
-            
-        
-        
-         disparcher.forward(request, response);
-        
-        
-        
+        request.setAttribute("correo", corr);
 
-     
+        mailSender.sendEmail(fromEmail, username, pass, toEmail, subjet, message);
+
+        disparcher.forward(request, response);
+
     }
 
     /**

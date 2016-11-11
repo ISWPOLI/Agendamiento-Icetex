@@ -102,7 +102,7 @@ public class ServletCrear extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String tdoc = request.getParameter("tdoc");
         String ndoc = request.getParameter("ndoc");
-        int doc = Integer.parseInt(ndoc);
+        long doc = Long.parseLong(ndoc);
         String usuario = request.getParameter("usuario");
         String pass = request.getParameter("cont");
         String correo = request.getParameter("correo");
@@ -124,6 +124,8 @@ public class ServletCrear extends HttpServlet {
          */
         
         /** se crea una instancia de cada objeto entidad y de los sesion beans */
+        
+        
         Correo co = new Correo();
         co.setIdCorreo(correo);
 
@@ -156,7 +158,7 @@ public class ServletCrear extends HttpServlet {
             out.println("<title>Servlet SerCrear</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SerCrear at " + nombre + apellido + telefono + tdoc + doc + usuario + pass + correo + "</h1>");
+            out.println("<h1>Servlet SerCrear at "+  tdoc + ""+ ndoc +"  _------  "+telefono+ "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

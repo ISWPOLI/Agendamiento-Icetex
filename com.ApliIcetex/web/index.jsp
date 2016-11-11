@@ -23,8 +23,19 @@ session.setAttribute("correo", em);
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <link rel="stylesheet" href="Css/Style.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+             $(document).ready(function () {
+
+            $("#cor").css("display", "none");
+
+            })
+            
+        </script>
+        
+        
     </head>
     <body>
 
@@ -42,12 +53,8 @@ session.setAttribute("correo", em);
 
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            
-                                            
-
-                                            <input type="submit"   value="Disponibilidad " />
-                                            
-                                             
+                                            <input type="submit"   value="Disponibilidad " class="bot" />
+                                                                                         
                                         </div>
                                     </div>
                                 </form>
@@ -65,10 +72,10 @@ session.setAttribute("correo", em);
         </nav>
 
         <div class="container">
-            <h1>Bienvenidos a nuestra aplicación </h1>
+            <h1>Bienvenido a agendamiento en linea  </h1>
             <h2><%=nom%></h2>
-            <input type="text" value="<%=em%> " disabled="disabled" name="em"/>
-            <p>Nos mueve la ingenieria </p>
+            <input type="text" value="<%=em%> " id="cor" disabled="disabled" name="em"/>
+            <h4>Nos mueve la ingenieria </h4>
         </div>
             
             

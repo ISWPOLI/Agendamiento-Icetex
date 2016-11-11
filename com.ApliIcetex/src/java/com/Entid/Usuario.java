@@ -43,7 +43,7 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_USUARIO")
-    private Integer idUsuario;
+    private Long idUsuario;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -65,7 +65,7 @@ public class Usuario implements Serializable {
     @Column(name = "TIPO_DOC")
     private String tipoDoc;
     @Column(name = "AGENDID")
-    private BigInteger agendid;
+    private long agendid;
     @JoinColumn(name = "CORREO_ID_CORREO", referencedColumnName = "ID_CORREO")
     @ManyToOne(optional = false)
     private Correo correoIdCorreo;
@@ -76,11 +76,11 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuario) {
+    public Usuario(long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Usuario(Integer idUsuario, String nombre, String apellido, String telefono, String tipoDoc) {
+    public Usuario(Long idUsuario, String nombre, String apellido, String telefono, String tipoDoc) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -88,11 +88,11 @@ public class Usuario implements Serializable {
         this.tipoDoc = tipoDoc;
     }
 
-    public Integer getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -128,11 +128,11 @@ public class Usuario implements Serializable {
         this.tipoDoc = tipoDoc;
     }
 
-    public BigInteger getAgendid() {
+    public long getAgendid() {
         return agendid;
     }
 
-    public void setAgendid(BigInteger agendid) {
+    public void setAgendid(Long agendid) {
         this.agendid = agendid;
     }
 

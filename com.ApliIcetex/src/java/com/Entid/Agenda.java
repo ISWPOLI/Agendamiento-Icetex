@@ -42,7 +42,7 @@ public class Agenda implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_AGENDA")
-    private BigDecimal idAgenda;
+    private Integer idAgenda;
     @Size(max = 15)
     @Column(name = "TIPO")
     private String tipo;
@@ -59,15 +59,15 @@ public class Agenda implements Serializable {
     public Agenda() {
     }
 
-    public Agenda(BigDecimal idAgenda) {
+    public Agenda(Integer idAgenda) {
         this.idAgenda = idAgenda;
     }
 
-    public BigDecimal getIdAgenda() {
+    public Integer getIdAgenda() {
         return idAgenda;
     }
 
-    public void setIdAgenda(BigDecimal idAgenda) {
+    public void setIdAgenda(Integer idAgenda) {
         this.idAgenda = idAgenda;
     }
 
