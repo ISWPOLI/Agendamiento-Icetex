@@ -5,17 +5,8 @@
  */
 package com.Servlets;
 
-import com.Entid.Agenda;
-import com.Session.AgendaFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,16 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * declaracion del Servlet SerAgenda
  *
- *
- * @author Damage Control
- * @version 0.1.6
+ * @author Willy
  */
-public class ServAgenda extends HttpServlet {
-
-    @EJB
-    private AgendaFacade agendaFacade;
+public class Seleccion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -52,10 +37,10 @@ public class ServAgenda extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServAgenda</title>");
+            out.println("<title>Servlet Seleccion</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServAgenda at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Seleccion at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -87,62 +72,37 @@ public class ServAgenda extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher disparcher;
-        disparcher = getServletContext().getRequestDispatcher("/Agenda.jsp");
-
-        Agenda ag = new Agenda();
-
-        HttpSession misesion = request.getSession();
-        String corr = (String) misesion.getAttribute("correo");
-
-        String fecha = request.getParameter("fecha");
-        String dfecha;
-        SimpleDateFormat formatf = new SimpleDateFormat("dd/MM/yyyy");
-
-        Date fecha1 = null;
-        Date fecha2 = null;
-
-        try {
-            fecha1 = formatf.parse(fecha);
-
-        } catch (ParseException ex) {
-            Logger.getLogger(ServAgenda.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        dfecha = formatf.format(fecha1);
-
-        Collection<Agenda> agenda = agendaFacade.findAll();
-        Agenda[] agencad = new Agenda[agenda.size()];
-        int size = agenda.size();
-        agenda.toArray(agencad);
-
-        /**
-         * Handles the HTTP <code>POST</code> method.
-         *
-         * @param agenda Crea una collecion de las agendas
-         * @param size es el tamaño total de la agenda
-         *
-         */
-        request.setAttribute("dfecha", dfecha);
-        request.setAttribute("tamaño", size);
-        request.setAttribute("cadenagenda", agencad);
-        request.setAttribute("correo", corr);
-
-        disparcher.forward(request, response);
-
-        try (PrintWriter out = response.getWriter()) {
+       
+         RequestDispatcher disparcher;        
+        disparcher = getServletContext().getRequestDispatcher("/Seleccionar.jsp");
+         HttpSession misesion = request.getSession();
+        String corr =(String) misesion.getAttribute("correo");
+        
+        
+      
+        
+        
+        
+       disparcher.forward(request, response);
+        
+        
+        
+         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServAgenda</title>");
+            out.println("<title>Servlet Seleccion</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServAgenda at " + dfecha + "//" + agencad[1].getFecha() + "</h1>");
+            out.println("<h1> Seleccione el servlet " + corr + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
-
+        
+        
+        
+        
     }
 
     /**

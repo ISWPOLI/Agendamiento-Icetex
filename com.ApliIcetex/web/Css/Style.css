@@ -16,6 +16,10 @@ body,html{
 font-family: 'Ravi Prakash', cursive;
 }
 
+body{
+    
+    
+}
 h1{
     font: 150% ;
 }
@@ -23,8 +27,9 @@ h1{
 p{
     font:150%;
 }
-.container{
+#fecha{
     margin-top: 100px;
+    margin-right:  750px;
 }
 h4{
      margin-top: 250px;
@@ -32,3 +37,4 @@ h4{
 .bot{
     margin-right: 5px;
 }
+

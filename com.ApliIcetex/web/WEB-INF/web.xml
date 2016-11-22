@@ -20,6 +20,10 @@
         <servlet-name>error</servlet-name>
         <servlet-class>com.Servlets.error</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Seleccion</servlet-name>
+        <servlet-class>com.Servlets.Seleccion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Agendafinal</servlet-name>
         <url-pattern>/Afinal</url-pattern>
@@ -58,6 +62,10 @@
         <exception-type>java.io.IOException</exception-type>
         <location>/error</location>
     </error-page>
+    <servlet-mapping>
+        <servlet-name>Seleccion</servlet-name>
+        <url-pattern>/seleccionar</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

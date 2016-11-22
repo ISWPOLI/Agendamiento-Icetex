@@ -24,6 +24,7 @@ session.setAttribute("correo", em);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
          <link rel="stylesheet" href="Css/Style.css"/>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
@@ -49,11 +50,30 @@ session.setAttribute("correo", em);
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Agenda  <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <form class="form-horizontal" role="form" action="agenda" method="POST">
+                                <form class="form-horizontal" role="form" action="seleccionar" method="POST">
 
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
                                             <input type="submit"   value="Disponibilidad " class="bot" />
+                                                                                         
+                                        </div>
+                                    </div>
+                                </form>
+
+
+                            </li>
+
+                        </ul>
+
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes  <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <form class="form-horizontal" role="form" action="seleccionar" method="POST">
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <input type="submit"   value="Reporte Eliminados" class="bot" />
                                                                                          
                                         </div>
                                     </div>
